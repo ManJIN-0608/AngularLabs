@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+// need to import NgForm and Router
 
 @Component({
   selector: 'app-login',
