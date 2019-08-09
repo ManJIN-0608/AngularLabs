@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UsersService } from '../users.service';
+
 // need to import NgForm and Router
 
 @Component({
@@ -10,25 +12,37 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private usersService: UsersService, private router: Router) { }
 
   users = [{'email':'abc@com.au', 'pwd':'123'}, {'email':'abd@com.au', 'pwd':'123'}, {'email':'abe@com.au', 'pwd':'123'}]
   user = {email: '', password: ''};
+  
+  
+
   ngOnInit() {
   }
 
   login(){
-    var match = 0
-    for (var i = 0; i<3; i++) {
-        
-      if(this.user.email == this.users[i].email && this.user.password == this.users[i].pwd){
-        this.router.navigateByUrl("account");
-        match = 1
-        return;
+    console.log(this.user);
+    this.usersService.apiPost('http://localhost:3000/api/login', this.user)
+    .subscribe((res)=>{
+      console.log(res.valid);
+      if (res.valid){
+        sessionStorage.setItem('email', res.email);
+        sessionStorage.setItem('username', res.username);
+        sessionStorage.setItem('birthday', res.birthday); 
+        sessionStorage.setItem('age', JSON.stringify(res.age));
+        sessionStorage.setItem('valid', JSON.stringify(res.valid));
+        console.log(sessionStorage.getItem('email'));
+        console.log(sessionStorage.getItem('username'));
+        console.log(sessionStorage.getItem('birthday'));
+        console.log(sessionStorage.getItem('age'));
+        console.log(sessionStorage.getItem('valid'));
+        this.router.navigateByUrl('/account');
+      }else {
+        alert('Incorrect email or password!')
       }
-    }
-    if (! match) {alert('Error!');}
-
+    });
   }
 
 }

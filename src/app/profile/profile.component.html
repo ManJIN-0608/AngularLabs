@@ -1,0 +1,20 @@
+<p>profile works!</p>
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <h1>Profile Page</h1>
+    <form action="../login/login.component.ts">
+        Username:
+        <input type="text" name="username" value={{username}}><br><br>
+        Birthday:
+        <input type="text" name="birthday" value={{birthday}}><br><br>
+        Age:
+        <input type="text" name="age" value={{age}}>
+        <br><br>
+        <button (click) = Update()>Submit</button>
+    </form>
+    <p>If you clict Submit button, the form data will be sent to sessionStorage</p>
+</body>
+</html>
