@@ -6,9 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  username:string =  "";
-  birthday:string = "";
-  age:string = "";
+//username:string = '';
+//birthday:string = '';
+//age:string = '';
+username = sessionStorage.getItem('username');
+birthday = sessionStorage.getItem('birthday');
+age = sessionStorage.getItem('age');
 
   constructor() { }
 
@@ -17,7 +20,6 @@ export class ProfileComponent implements OnInit {
     this.username = sessionStorage.getItem('username');
     this.birthday = sessionStorage.getItem('birthday');
     this.age = sessionStorage.getItem('age');
-
   }
 
   Update(){
@@ -26,6 +28,7 @@ export class ProfileComponent implements OnInit {
     sessionStorage.setItem('birthday', this.birthday); 
     sessionStorage.setItem('age', this.age);    
     //this.router.navigateByUrl('/login');
+
   }
 
 }
