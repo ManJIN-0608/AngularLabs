@@ -6,9 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-//username:string = '';
-//birthday:string = '';
-//age:string = '';
+
 username = sessionStorage.getItem('username');
 birthday = sessionStorage.getItem('birthday');
 age = sessionStorage.getItem('age');
@@ -16,18 +14,16 @@ age = sessionStorage.getItem('age');
   constructor() { }
 
   ngOnInit() {
-
-    this.username = sessionStorage.getItem('username');
-    this.birthday = sessionStorage.getItem('birthday');
-    this.age = sessionStorage.getItem('age');
   }
 
   Update(){
     console.log('Update');
     sessionStorage.setItem('username', this.username);
     sessionStorage.setItem('birthday', this.birthday); 
-    sessionStorage.setItem('age', this.age);    
-    //this.router.navigateByUrl('/login');
+    sessionStorage.setItem('age', this.age); 
+    console.log(sessionStorage.getItem('username'));
+    console.log(sessionStorage.getItem('birthday'));
+    console.log(sessionStorage.getItem('age'));
 
   }
 

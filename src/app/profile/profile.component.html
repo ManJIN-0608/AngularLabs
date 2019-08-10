@@ -5,13 +5,13 @@
 </head>
 <body>
     <h1>Profile Page</h1>
-    <form action="./profile.component.ts">
+    <form>
         Username:
-        <input type="text" name="username" value={{username}}><br><br>
+        <input type="text" name="username" [(ngModel)]="username"><br><br>
         Birthday:
-        <input type="text" name="birthday" value={{birthday}}><br><br>
+        <input type="text" name="birthday" [(ngModel)]="birthday"><br><br>
         Age:
-        <input type="text" name="age" value={{age}}>
+        <input type="text" name="age" [(ngModel)]="age">
         <br><br>
         <button (click) = Update()>Submit</button>
     </form>
