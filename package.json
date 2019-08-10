@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "myapp",
   "version": "0.0.0",
   "scripts": {
@@ -44,5 +45,19 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
+=======
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+>>>>>>> week5 server new
   }
 }
